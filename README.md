@@ -8,15 +8,15 @@ The project focuses on tracking element count separately from array capacity, gr
 
 | Member | Requirement |
 |---|---|
+| Indexer | Gets or sets an element at an index in the range `0 <= index < Count`. Invalid indexes throw `IndexOutOfRangeException`. |
 | `MyList<T>` | Stores elements of one generic type `T` in an array. |
 | `Count` | Returns the number of stored elements. |
 | `Capacity` | Returns the backing array length. Initial capacity is 4; capacity doubles when more space is required. |
-| Indexer | Gets or sets an element at an index in the range `0 <= index < Count`. Invalid indexes throw `IndexOutOfRangeException`. |
+| `Contains(value)` | Returns `true` if an equal element exists; otherwise returns `false`. |
 | `Add(item)` | Appends an element and increases `Count` by one. |
 | `Insert(index, item)` | Inserts an element at an index in the range `0 <= index <= Count`, shifts later elements right, and increases `Count` by one. |
 | `RemoveAt(index)` | Removes the element at an index in the range `0 <= index < Count`, shifts later elements left, decreases `Count` by one, and clears the freed slot. |
 | `FindIndex(value)` | Returns the index of the first equal element, or `-1` if no element matches. |
-| `Contains(value)` | Returns `true` if an equal element exists; otherwise returns `false`. |
 | `Clear()` | Removes all elements, sets `Count` to 0, and resets capacity to 4. |
 
 ## Usage Specification
