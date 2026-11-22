@@ -8,8 +8,8 @@ The project focuses on tracking element count separately from array capacity, gr
 
 | Member | Requirement |
 |---|---|
-| [Indexer](#indexer) | Gets or sets an element at an index in the range 0 <= index < Count. Invalid indexes throw IndexOutOfRangeException. |
 | [**MyList&lt;T&gt;**](#generic-type) | Stores elements of one generic type T in an array. |
+| [Indexer](#indexer) | Gets or sets an element at an index in the range 0 <= index < Count. Invalid indexes throw IndexOutOfRangeException. |
 | [Count](#count) | Returns the number of stored elements. |
 | [Capacity](#capacity) | Returns the backing array length. Initial capacity is 4; capacity doubles when more space is required. |
 | [Contains(value)](#contains) | Returns true if an equal element exists; otherwise returns false. |
@@ -22,6 +22,21 @@ The project focuses on tracking element count separately from array capacity, gr
 ## Usage Specification
 
 The examples below follow the same order as the Functional Specification. Each snippet assumes the OOP namespace is imported.
+
+### Generic Type
+
+| Field | Specification |
+|---|---|
+| Preconditions | A generic element type is selected. |
+| Operation | Create a list of that type and add a value. |
+| Expected result | The list stores and returns a value of the selected type. |
+
+~~~csharp
+var names = new MyList<string>();
+names.Add("Ada");
+
+var firstName = names[0]; // "Ada"
+~~~
 
 ### Indexer
 
@@ -38,21 +53,6 @@ numbers.Add(20);
 
 var first = numbers[0]; // 10
 numbers[1] = 25;
-~~~
-
-### Generic Type
-
-| Field | Specification |
-|---|---|
-| Preconditions | A generic element type is selected. |
-| Operation | Create a list of that type and add a value. |
-| Expected result | The list stores and returns a value of the selected type. |
-
-~~~csharp
-var names = new MyList<string>();
-names.Add("Ada");
-
-var firstName = names[0]; // "Ada"
 ~~~
 
 ### Count
