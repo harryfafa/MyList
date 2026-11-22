@@ -2,20 +2,32 @@
 
 A C# learning project that implements a generic list using a resizable array.
 
-The project focuses on how a list can track its element count separately from its array capacity, grow when full, and shift elements during insertion and removal.
+The project focuses on tracking element count separately from array capacity, growing the array when full, and shifting elements during insertion and removal.
 
-## Features
+## Functional Specification
 
-- Generic storage with **MyList<T>**
-- **Count** and **Capacity**
-- Indexer with index validation
-- Add and insert elements
-- Remove an element by index
-- Search with **FindIndex** and **Contains**
-- Clear and reuse the list
-- xUnit tests for normal behavior, capacity growth, and invalid indexes
+| ID | Member | Requirement |
+|---|---|---|
+| FR-01 | `MyList<T>` | Stores elements of one generic type `T` in an array. |
+| FR-02 | `Count` | Returns the number of stored elements. |
+| FR-03 | `Capacity` | Returns the backing array length. Initial capacity is 4; capacity doubles when more space is required. |
+| FR-04 | Indexer | Gets or sets an element at an index in the range `0 <= index < Count`. Invalid indexes throw `IndexOutOfRangeException`. |
+| FR-05 | `Add(item)` | Appends an element and increases `Count` by one. |
+| FR-06 | `Insert(index, item)` | Inserts an element at an index in the range `0 <= index <= Count`, shifts later elements right, and increases `Count` by one. |
+| FR-07 | `RemoveAt(index)` | Removes the element at an index in the range `0 <= index < Count`, shifts later elements left, decreases `Count` by one, and clears the freed slot. |
+| FR-08 | `FindIndex(value)` | Returns the index of the first equal element, or `-1` if no element matches. |
+| FR-09 | `Contains(value)` | Returns `true` if an equal element exists; otherwise returns `false`. |
+| FR-10 | `Clear()` | Removes all elements, sets `Count` to 0, and resets capacity to 4. |
 
-## Example
+## Usage Specification
+
+### UC-01: Insert an element and read the list
+
+| Field | Specification |
+|---|---|
+| Preconditions | A new `MyList<int>` is empty. |
+| Operations | Append 10; append 20; insert 15 at index 1. |
+| Expected state | Elements are `[10, 15, 20]`; `Count` is 3; `Capacity` is 4. |
 
 ~~~csharp
 using OOP;
@@ -25,9 +37,14 @@ numbers.Add(10);
 numbers.Add(20);
 numbers.Insert(1, 15);
 
-Console.WriteLine(numbers[1]);  // 15
-Console.WriteLine(numbers.Count);     // 3
-Console.WriteLine(numbers.Capacity);  // 4
+// Expected: 15
+Console.WriteLine(numbers[1]);
+
+// Expected: 3
+Console.WriteLine(numbers.Count);
+
+// Expected: 4
+Console.WriteLine(numbers.Capacity);
 ~~~
 
 ## Run the tests
@@ -36,7 +53,7 @@ Console.WriteLine(numbers.Capacity);  // 4
 dotnet test MyList.slnx
 ~~~
 
-## Implementation notes
+## Implementation Notes
 
 The list starts with a capacity of 4. When it needs more room, it doubles the backing array and copies the existing elements.
 
@@ -47,4 +64,4 @@ The list starts with a capacity of 4. When it needs more room, it doubles the ba
 | Insert / RemoveAt | O(n) |
 | FindIndex / Contains | O(n) |
 
-This is an educational implementation and a focused exercise in array-backed collection behavior.
+This is an educational implementation focused on array-backed collection behavior.
