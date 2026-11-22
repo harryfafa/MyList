@@ -7,17 +7,17 @@ The project focuses on tracking element count separately from array capacity, gr
 ## Functional Specification
 
 | ID | Member | Requirement |
-|---|---|---|
-| FR-01 | `MyList<T>` | Stores elements of one generic type `T` in an array. |
-| FR-02 | `Count` | Returns the number of stored elements. |
-| FR-03 | `Capacity` | Returns the backing array length. Initial capacity is 4; capacity doubles when more space is required. |
-| FR-04 | Indexer | Gets or sets an element at an index in the range `0 <= index < Count`. Invalid indexes throw `IndexOutOfRangeException`. |
-| FR-05 | `Add(item)` | Appends an element and increases `Count` by one. |
-| FR-06 | `Insert(index, item)` | Inserts an element at an index in the range `0 <= index <= Count`, shifts later elements right, and increases `Count` by one. |
-| FR-07 | `RemoveAt(index)` | Removes the element at an index in the range `0 <= index < Count`, shifts later elements left, decreases `Count` by one, and clears the freed slot. |
-| FR-08 | `FindIndex(value)` | Returns the index of the first equal element, or `-1` if no element matches. |
-| FR-09 | `Contains(value)` | Returns `true` if an equal element exists; otherwise returns `false`. |
-| FR-10 | `Clear()` | Removes all elements, sets `Count` to 0, and resets capacity to 4. |
+|---|---|
+`MyList<T>` | Stores elements of one generic type `T` in an array. |
+`Count` | Returns the number of stored elements. |
+`Capacity` | Returns the backing array length. Initial capacity is 4; capacity doubles when more space is required. |
+Indexer | Gets or sets an element at an index in the range `0 <= index < Count`. Invalid indexes throw `IndexOutOfRangeException`. |
+`Add(item)` | Appends an element and increases `Count` by one. |
+`Insert(index, item)` | Inserts an element at an index in the range `0 <= index <= Count`, shifts later elements right, and increases `Count` by one. |
+`RemoveAt(index)` | Removes the element at an index in the range `0 <= index < Count`, shifts later elements left, decreases `Count` by one, and clears the freed slot. |
+`FindIndex(value)` | Returns the index of the first equal element, or `-1` if no element matches. |
+`Contains(value)` | Returns `true` if an equal element exists; otherwise returns `false`. |
+`Clear()` | Removes all elements, sets `Count` to 0, and resets capacity to 4. |
 
 ## Usage Specification
 
